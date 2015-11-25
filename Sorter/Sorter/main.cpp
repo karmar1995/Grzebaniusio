@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+//komentarzyk
 using namespace std;
 
 void help()
