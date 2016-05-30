@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int up(int **hero_vertical, int **tmp_vertical)
+{
+    **hero_vertical = 3;
+    if(*hero_vertical!=*tmp_vertical)
+    {
+        if(**(hero_vertical-1)==0)
+           {
+             *hero_vertical--;
+             return 1;
+           }
+        if(**(hero_vertical-1)==2)
+        {
+            *hero_vertical--;
+            return 2;
+        }
+    }
+    return 0;
+}
+int down(int **hero_vertical, int **tmp_vertical, int size)
+{
+    **hero_vertical = 3;
+    if(*hero_vertical-*tmp_vertical<size)
+    {
+        if(**(hero_vertical+1)==0)
+           {
+             *hero_vertical++;
+             return 1;
+           }
+        if(**(hero_vertical+1)==2)
+        {
+            *hero_vertical++;
+            return 2;
+        }
+    }
+    return 0;
+}
+int left(int **hero_horizontal, int **tmp_horizontal)
+{
+    **hero_horizontal = 3;
+    if(*hero_horizontal!=*tmp_horizontal)
+    {
+        if(**(hero_horizontal-1)==0)
+           {
+             *hero_horizontal--;
+             return 1;
+           }
+        if(**(hero_horizontal-1)==2)
+        {
+            *hero_horizontal--;
+            return 2;
+        }
+    }
+    return 0;
+}
+int right(int **hero_horizontal, int **tmp_horizontal, int size)
+{
+    **hero_horizontal = 3;
+    if(*hero_horizontal-*hero_horizontal<size)
+    {
+        if(**(hero_horizontal+1)==0)
+           {
+             *hero_horizontal++;
+             return 1;
+           }
+        if(**(hero_horizontal+1)==2)
+        {
+            *hero_horizontal++;
+            return 2;
+        }
+    }
+    return 0;
+}
+
+int main()
+{
+    int hor;
+    int vert;
+    int *horizontal;
+    int **vertical;
+    FILE *fp=fopen("Plik.txt", "r");
+    fscanf(fp, "%d", &vert);
+    fscanf(fp, "%d", &hor);
+    horizontal = malloc(hor*sizeof(int));
+    *vertical = malloc(vert*sizeof(horizontal));
+    int *tmp_horizontal = horizontal;
+    int **tmp_vertical = vertical;
+    printf("Hello world!\n");
+    return 0;
+}
